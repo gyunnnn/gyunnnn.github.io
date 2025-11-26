@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang=ko>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="직렬화(Serialization)와 역직렬화(Deserialization)에 대해서 알아봅시다.  직렬화(Serialization) 메모리에 존재하는 데이터를, 범용 포맷(JSON, XML, 바이너리 등)으로 변환하는 과정 Encoding  목적 메모리에 있는 데이터를 전송 및 저장이 가능한 형태로 만들기 위함  예시 네트워크 전송 파일 저장 다른 시스템">
+<meta property="og:type" content="article">
+<meta property="og:title" content="직렬화(Serialization)&#x2F;역직렬화(Deserialization)">
+<meta property="og:url" content="https://gyunnnn.github.io/2025/11/26/%EC%A7%81%EB%A0%AC%ED%99%94-Serialization-%EC%97%AD%EC%A7%81%EB%A0%AC%ED%99%94-Deserialization/index.html">
+<meta property="og:site_name" content="JEGYUN&#39;s Blog">
+<meta property="og:description" content="직렬화(Serialization)와 역직렬화(Deserialization)에 대해서 알아봅시다.  직렬화(Serialization) 메모리에 존재하는 데이터를, 범용 포맷(JSON, XML, 바이너리 등)으로 변환하는 과정 Encoding  목적 메모리에 있는 데이터를 전송 및 저장이 가능한 형태로 만들기 위함  예시 네트워크 전송 파일 저장 다른 시스템">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://gyunnnn.github.io/%EC%A7%81%EB%A0%AC%ED%99%94-Serialization-%EC%97%AD%EC%A7%81%EB%A0%AC%ED%99%94-Deserialization/Serialization.jpg">
+<meta property="article:published_time" content="2025-11-25T15:00:00.000Z">
+<meta property="article:modified_time" content="2025-11-26T04:44:52.299Z">
+<meta property="article:author" content="PARK JEGYUN">
+<meta property="article:tag" content="Codable">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gyunnnn.github.io/%EC%A7%81%EB%A0%AC%ED%99%94-Serialization-%EC%97%AD%EC%A7%81%EB%A0%AC%ED%99%94-Deserialization/Serialization.jpg">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>직렬화(Serialization)/역직렬화(Deserialization)</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Posts</a></li><!--
+     --><!--
+       --><li><a href="/categories/">Category</a></li><!--
+     --><!--
+       --><li><a href="/tags/">Tag</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2025/11/25/hello-world/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://gyunnnn.github.io/2025/11/26/%EC%A7%81%EB%A0%AC%ED%99%94-Serialization-%EC%97%AD%EC%A7%81%EB%A0%AC%ED%99%94-Deserialization/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://gyunnnn.github.io/2025/11/26/%EC%A7%81%EB%A0%AC%ED%99%94-Serialization-%EC%97%AD%EC%A7%81%EB%A0%AC%ED%99%94-Deserialization/&text=직렬화(Serialization)/역직렬화(Deserialization)"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://gyunnnn.github.io/2025/11/26/%EC%A7%81%EB%A0%AC%ED%99%94-Serialization-%EC%97%AD%EC%A7%81%EB%A0%AC%ED%99%94-Deserialization/&title=직렬화(Serialization)/역직렬화(Deserialization)"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://gyunnnn.github.io/2025/11/26/%EC%A7%81%EB%A0%AC%ED%99%94-Serialization-%EC%97%AD%EC%A7%81%EB%A0%AC%ED%99%94-Deserialization/&is_video=false&description=직렬화(Serialization)/역직렬화(Deserialization)"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=직렬화(Serialization)/역직렬화(Deserialization)&body=Check out this article: https://gyunnnn.github.io/2025/11/26/%EC%A7%81%EB%A0%AC%ED%99%94-Serialization-%EC%97%AD%EC%A7%81%EB%A0%AC%ED%99%94-Deserialization/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://gyunnnn.github.io/2025/11/26/%EC%A7%81%EB%A0%AC%ED%99%94-Serialization-%EC%97%AD%EC%A7%81%EB%A0%AC%ED%99%94-Deserialization/&title=직렬화(Serialization)/역직렬화(Deserialization)"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://gyunnnn.github.io/2025/11/26/%EC%A7%81%EB%A0%AC%ED%99%94-Serialization-%EC%97%AD%EC%A7%81%EB%A0%AC%ED%99%94-Deserialization/&title=직렬화(Serialization)/역직렬화(Deserialization)"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://gyunnnn.github.io/2025/11/26/%EC%A7%81%EB%A0%AC%ED%99%94-Serialization-%EC%97%AD%EC%A7%81%EB%A0%AC%ED%99%94-Deserialization/&title=직렬화(Serialization)/역직렬화(Deserialization)"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://gyunnnn.github.io/2025/11/26/%EC%A7%81%EB%A0%AC%ED%99%94-Serialization-%EC%97%AD%EC%A7%81%EB%A0%AC%ED%99%94-Deserialization/&title=직렬화(Serialization)/역직렬화(Deserialization)"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://gyunnnn.github.io/2025/11/26/%EC%A7%81%EB%A0%AC%ED%99%94-Serialization-%EC%97%AD%EC%A7%81%EB%A0%AC%ED%99%94-Deserialization/&name=직렬화(Serialization)/역직렬화(Deserialization)&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://gyunnnn.github.io/2025/11/26/%EC%A7%81%EB%A0%AC%ED%99%94-Serialization-%EC%97%AD%EC%A7%81%EB%A0%AC%ED%99%94-Deserialization/&t=직렬화(Serialization)/역직렬화(Deserialization)"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%A7%81%EB%A0%AC%ED%99%94-Serialization"><span class="toc-number">1.</span> <span class="toc-text">직렬화(Serialization)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%AA%A9%EC%A0%81"><span class="toc-number">1.1.</span> <span class="toc-text">목적</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%98%88%EC%8B%9C"><span class="toc-number">1.2.</span> <span class="toc-text">예시</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%97%AD%EC%A7%81%EB%A0%AC%ED%99%94-Deserialization"><span class="toc-number">2.</span> <span class="toc-text">역직렬화(Deserialization)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%AA%A9%EC%A0%81-1"><span class="toc-number">2.1.</span> <span class="toc-text">목적</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%98%88%EC%8B%9C-1"><span class="toc-number">2.2.</span> <span class="toc-text">예시</span></a></li></ol></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        직렬화(Serialization)/역직렬화(Deserialization)
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">PARK JEGYUN</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2025-11-25T15:00:00.000Z" class="dt-published" itemprop="datePublished">2025-11-26</time>
+        
+        (Updated: <time datetime="2025-11-26T04:44:52.299Z" class="dt-updated" itemprop="dateModified">2025-11-26</time>)
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/Computer-Science/">Computer Science</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/Codable/" rel="tag">Codable</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <p>직렬화(Serialization)와 역직렬화(Deserialization)에 대해서 알아봅시다.</p>
+<p><img src="/./%EC%A7%81%EB%A0%AC%ED%99%94-Serialization-%EC%97%AD%EC%A7%81%EB%A0%AC%ED%99%94-Deserialization/Serialization.jpg" alt="serialization &amp; deserialization"></p>
+<h2 id="직렬화-Serialization"><a href="#직렬화-Serialization" class="headerlink" title="직렬화(Serialization)"></a>직렬화(Serialization)</h2><ul>
+<li>메모리에 존재하는 데이터를, 범용 포맷(JSON, XML, 바이너리 등)으로 변환하는 과정</li>
+<li>Encoding</li>
+</ul>
+<h3 id="목적"><a href="#목적" class="headerlink" title="목적"></a>목적</h3><ul>
+<li>메모리에 있는 데이터를 전송 및 저장이 가능한 형태로 만들기 위함</li>
+</ul>
+<h3 id="예시"><a href="#예시" class="headerlink" title="예시"></a>예시</h3><ul>
+<li>네트워크 전송</li>
+<li>파일 저장</li>
+<li>다른 시스템 및 프로그래밍 언어와 데이터 교환 </li>
+<li>iOS에서<ul>
+<li><code>class</code>와 <code>struct</code>로 정의한 데이터 모델의 인스턴스를 JSON으로 변환하여 서버로 전송</li>
+</ul>
+</li>
+</ul>
+<h2 id="역직렬화-Deserialization"><a href="#역직렬화-Deserialization" class="headerlink" title="역직렬화(Deserialization)"></a>역직렬화(Deserialization)</h2><ul>
+<li>범용 포맷(JSON, XML, 바이너리 등)으로 작성된 데이터를, 메모리 상의 데이터 구조로 변환하는 과정</li>
+<li>Decoding</li>
+</ul>
+<h3 id="목적-1"><a href="#목적-1" class="headerlink" title="목적"></a>목적</h3><ul>
+<li>범용 포맷의 데이터를 애플리케이션에서 사용할 수 있는 형태로 변환하기 위함</li>
+</ul>
+<h3 id="예시-1"><a href="#예시-1" class="headerlink" title="예시"></a>예시</h3><ul>
+<li>네트워크로부터 데이터 수신</li>
+<li>파일에서 데이터 읽기</li>
+<li>다른 시스템에서 전달받은 데이터 처리</li>
+<li>iOS에서<ul>
+<li>API 호출을 통해 받은 JSON 데이터를 iOS 앱에서 정의한 데이터 모델의 인스턴스로 변환하여 앱에서 사용</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+</article>
+
+
+
+    <div class="blog-post-comments">
+      <div id="giscus_thread">
+        <noscript>Please enable JavaScript to view the comments.</noscript>
+      </div>
+    </div>
+  
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/archives/">Posts</a></li>
+        
+          <li><a href="/categories/">Category</a></li>
+        
+          <li><a href="/tags/">Tag</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%A7%81%EB%A0%AC%ED%99%94-Serialization"><span class="toc-number">1.</span> <span class="toc-text">직렬화(Serialization)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%AA%A9%EC%A0%81"><span class="toc-number">1.1.</span> <span class="toc-text">목적</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%98%88%EC%8B%9C"><span class="toc-number">1.2.</span> <span class="toc-text">예시</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%97%AD%EC%A7%81%EB%A0%AC%ED%99%94-Deserialization"><span class="toc-number">2.</span> <span class="toc-text">역직렬화(Deserialization)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%AA%A9%EC%A0%81-1"><span class="toc-number">2.1.</span> <span class="toc-text">목적</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%98%88%EC%8B%9C-1"><span class="toc-number">2.2.</span> <span class="toc-text">예시</span></a></li></ol></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://gyunnnn.github.io/2025/11/26/%EC%A7%81%EB%A0%AC%ED%99%94-Serialization-%EC%97%AD%EC%A7%81%EB%A0%AC%ED%99%94-Deserialization/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://gyunnnn.github.io/2025/11/26/%EC%A7%81%EB%A0%AC%ED%99%94-Serialization-%EC%97%AD%EC%A7%81%EB%A0%AC%ED%99%94-Deserialization/&text=직렬화(Serialization)/역직렬화(Deserialization)"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://gyunnnn.github.io/2025/11/26/%EC%A7%81%EB%A0%AC%ED%99%94-Serialization-%EC%97%AD%EC%A7%81%EB%A0%AC%ED%99%94-Deserialization/&title=직렬화(Serialization)/역직렬화(Deserialization)"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://gyunnnn.github.io/2025/11/26/%EC%A7%81%EB%A0%AC%ED%99%94-Serialization-%EC%97%AD%EC%A7%81%EB%A0%AC%ED%99%94-Deserialization/&is_video=false&description=직렬화(Serialization)/역직렬화(Deserialization)"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=직렬화(Serialization)/역직렬화(Deserialization)&body=Check out this article: https://gyunnnn.github.io/2025/11/26/%EC%A7%81%EB%A0%AC%ED%99%94-Serialization-%EC%97%AD%EC%A7%81%EB%A0%AC%ED%99%94-Deserialization/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://gyunnnn.github.io/2025/11/26/%EC%A7%81%EB%A0%AC%ED%99%94-Serialization-%EC%97%AD%EC%A7%81%EB%A0%AC%ED%99%94-Deserialization/&title=직렬화(Serialization)/역직렬화(Deserialization)"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://gyunnnn.github.io/2025/11/26/%EC%A7%81%EB%A0%AC%ED%99%94-Serialization-%EC%97%AD%EC%A7%81%EB%A0%AC%ED%99%94-Deserialization/&title=직렬화(Serialization)/역직렬화(Deserialization)"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://gyunnnn.github.io/2025/11/26/%EC%A7%81%EB%A0%AC%ED%99%94-Serialization-%EC%97%AD%EC%A7%81%EB%A0%AC%ED%99%94-Deserialization/&title=직렬화(Serialization)/역직렬화(Deserialization)"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://gyunnnn.github.io/2025/11/26/%EC%A7%81%EB%A0%AC%ED%99%94-Serialization-%EC%97%AD%EC%A7%81%EB%A0%AC%ED%99%94-Deserialization/&title=직렬화(Serialization)/역직렬화(Deserialization)"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://gyunnnn.github.io/2025/11/26/%EC%A7%81%EB%A0%AC%ED%99%94-Serialization-%EC%97%AD%EC%A7%81%EB%A0%AC%ED%99%94-Deserialization/&name=직렬화(Serialization)/역직렬화(Deserialization)&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://gyunnnn.github.io/2025/11/26/%EC%A7%81%EB%A0%AC%ED%99%94-Serialization-%EC%97%AD%EC%A7%81%EB%A0%AC%ED%99%94-Deserialization/&t=직렬화(Serialization)/역직렬화(Deserialization)"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2025
+    PARK JEGYUN
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Posts</a></li><!--
+     --><!--
+       --><li><a href="/categories/">Category</a></li><!--
+     --><!--
+       --><li><a href="/tags/">Tag</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+
+  <script src="https://giscus.app/client.js"
+        data-repo="gyunnnn/gyunnnn.github.io"
+        data-repo-id="R_kgDOQU-43Q"
+        data-category="General"
+        data-category-id="DIC_kwDOQU-43c4Cx7gM"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="ko"
+        crossorigin="anonymous"
+        async>
+</script>
+
+
+
+</body>
+</html>
