@@ -6,20 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="직렬화(Serialization)와 역직렬화(Deserialization)에 대해서 알아봅시다.  직렬화(Serialization) 메모리에 존재하는 데이터를, 범용 포맷(JSON, XML, 바이너리 등)으로 변환하는 과정 Encoding  목적 메모리에 있는 데이터를 전송 및 저장이 가능한 형태로 만들기 위함  예시 네트워크 전송 파일 저장 다른 시스템">
+    <meta name="description" content="직렬화(Serialization)와 역직렬화(Deserialization)에 대해서 알아봅시다.  [^1][^1]: 참조 직렬화(Serialization) 메모리에 존재하는 데이터를, 범용 포맷(JSON, XML, 바이너리 등)으로 변환하는 과정 Encoding  목적 메모리에 있는 데이터를 전송 및 저장이 가능한 형태로 만들기 위함  예시 네트워크 전송">
 <meta property="og:type" content="article">
 <meta property="og:title" content="직렬화(Serialization)&#x2F;역직렬화(Deserialization)">
 <meta property="og:url" content="https://gyunnnn.github.io/2025/11/26/%EC%A7%81%EB%A0%AC%ED%99%94-Serialization-%EC%97%AD%EC%A7%81%EB%A0%AC%ED%99%94-Deserialization/index.html">
 <meta property="og:site_name" content="JEGYUN&#39;s Blog">
-<meta property="og:description" content="직렬화(Serialization)와 역직렬화(Deserialization)에 대해서 알아봅시다.  직렬화(Serialization) 메모리에 존재하는 데이터를, 범용 포맷(JSON, XML, 바이너리 등)으로 변환하는 과정 Encoding  목적 메모리에 있는 데이터를 전송 및 저장이 가능한 형태로 만들기 위함  예시 네트워크 전송 파일 저장 다른 시스템">
+<meta property="og:description" content="직렬화(Serialization)와 역직렬화(Deserialization)에 대해서 알아봅시다.  [^1][^1]: 참조 직렬화(Serialization) 메모리에 존재하는 데이터를, 범용 포맷(JSON, XML, 바이너리 등)으로 변환하는 과정 Encoding  목적 메모리에 있는 데이터를 전송 및 저장이 가능한 형태로 만들기 위함  예시 네트워크 전송">
 <meta property="og:locale" content="ko_KR">
-<meta property="og:image" content="https://gyunnnn.github.io/%EC%A7%81%EB%A0%AC%ED%99%94-Serialization-%EC%97%AD%EC%A7%81%EB%A0%AC%ED%99%94-Deserialization/Serialization.jpg">
+<meta property="og:image" content="https://gyunnnn.github.io/2025/11/26/%EC%A7%81%EB%A0%AC%ED%99%94-Serialization-%EC%97%AD%EC%A7%81%EB%A0%AC%ED%99%94-Deserialization/Serialization.jpg">
 <meta property="article:published_time" content="2025-11-25T15:00:00.000Z">
-<meta property="article:modified_time" content="2025-11-26T04:44:52.299Z">
+<meta property="article:modified_time" content="2025-11-26T07:33:59.541Z">
 <meta property="article:author" content="PARK JEGYUN">
 <meta property="article:tag" content="Codable">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://gyunnnn.github.io/%EC%A7%81%EB%A0%AC%ED%99%94-Serialization-%EC%97%AD%EC%A7%81%EB%A0%AC%ED%99%94-Deserialization/Serialization.jpg">
+<meta name="twitter:image" content="https://gyunnnn.github.io/2025/11/26/%EC%A7%81%EB%A0%AC%ED%99%94-Serialization-%EC%97%AD%EC%A7%81%EB%A0%AC%ED%99%94-Deserialization/Serialization.jpg">
     
     
       
@@ -142,7 +142,7 @@
       
         <time datetime="2025-11-25T15:00:00.000Z" class="dt-published" itemprop="datePublished">2025-11-26</time>
         
-        (Updated: <time datetime="2025-11-26T04:44:52.299Z" class="dt-updated" itemprop="dateModified">2025-11-26</time>)
+        (Updated: <time datetime="2025-11-26T07:33:59.541Z" class="dt-updated" itemprop="dateModified">2025-11-26</time>)
         
       
     </div>
@@ -168,7 +168,7 @@
 
   <div class="content e-content" itemprop="articleBody">
     <p>직렬화(Serialization)와 역직렬화(Deserialization)에 대해서 알아봅시다.</p>
-<p><img src="/./%EC%A7%81%EB%A0%AC%ED%99%94-Serialization-%EC%97%AD%EC%A7%81%EB%A0%AC%ED%99%94-Deserialization/Serialization.jpg" alt="serialization &amp; deserialization"></p>
+<p><img src="/2025/11/26/%EC%A7%81%EB%A0%AC%ED%99%94-Serialization-%EC%97%AD%EC%A7%81%EB%A0%AC%ED%99%94-Deserialization/Serialization.jpg" alt="serialization &amp; deserialization"> [^1]<br>[^1]: <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Serialization">참조</a></p>
 <h2 id="직렬화-Serialization"><a href="#직렬화-Serialization" class="headerlink" title="직렬화(Serialization)"></a>직렬화(Serialization)</h2><ul>
 <li>메모리에 존재하는 데이터를, 범용 포맷(JSON, XML, 바이너리 등)으로 변환하는 과정</li>
 <li>Encoding</li>
@@ -274,7 +274,7 @@
     Copyright &copy;
     
     
-    2025
+    2025-2026
     PARK JEGYUN
   </div>
   <div class="footer-right">
