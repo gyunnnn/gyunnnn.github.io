@@ -6,16 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="직렬화(Serialization)와 역직렬화(Deserialization)에 대해서 알아봅시다.  [^1][^1]: 참조 직렬화(Serialization) 메모리에 존재하는 데이터를, 범용 포맷(JSON, XML, 바이너리 등)으로 변환하는 과정 Encoding  목적 메모리에 있는 데이터를 전송 및 저장이 가능한 형태로 만들기 위함  예시 네트워크 전송">
+    <meta name="description" content="직렬화(Serialization)와 역직렬화(Deserialization)에 대해서 알아봅시다.  직렬화와 역직렬화 [1] 직렬화(Serialization)  메모리에 존재하는 데이터를, 범용 포맷(JSON, XML, 바이너리 등)으로 변환하는 과정 Encoding  목적  메모리에 있는 데이터를 전송 및 저장이 가능한 형태로 만들기 위함  예시  네트워크">
 <meta property="og:type" content="article">
 <meta property="og:title" content="직렬화(Serialization)&#x2F;역직렬화(Deserialization)">
 <meta property="og:url" content="https://gyunnnn.github.io/2025/11/26/%EC%A7%81%EB%A0%AC%ED%99%94-Serialization-%EC%97%AD%EC%A7%81%EB%A0%AC%ED%99%94-Deserialization/index.html">
 <meta property="og:site_name" content="JEGYUN&#39;s Blog">
-<meta property="og:description" content="직렬화(Serialization)와 역직렬화(Deserialization)에 대해서 알아봅시다.  [^1][^1]: 참조 직렬화(Serialization) 메모리에 존재하는 데이터를, 범용 포맷(JSON, XML, 바이너리 등)으로 변환하는 과정 Encoding  목적 메모리에 있는 데이터를 전송 및 저장이 가능한 형태로 만들기 위함  예시 네트워크 전송">
+<meta property="og:description" content="직렬화(Serialization)와 역직렬화(Deserialization)에 대해서 알아봅시다.  직렬화와 역직렬화 [1] 직렬화(Serialization)  메모리에 존재하는 데이터를, 범용 포맷(JSON, XML, 바이너리 등)으로 변환하는 과정 Encoding  목적  메모리에 있는 데이터를 전송 및 저장이 가능한 형태로 만들기 위함  예시  네트워크">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:image" content="https://gyunnnn.github.io/2025/11/26/%EC%A7%81%EB%A0%AC%ED%99%94-Serialization-%EC%97%AD%EC%A7%81%EB%A0%AC%ED%99%94-Deserialization/Serialization.jpg">
 <meta property="article:published_time" content="2025-11-25T15:00:00.000Z">
-<meta property="article:modified_time" content="2025-11-26T07:33:59.541Z">
+<meta property="article:modified_time" content="2026-01-27T07:58:04.465Z">
 <meta property="article:author" content="PARK JEGYUN">
 <meta property="article:tag" content="Codable">
 <meta name="twitter:card" content="summary">
@@ -87,8 +87,6 @@
         <li><a class="icon" aria-label="Previous post" href="/2026/01/09/WWDC25-What%E2%80%99s-new-in-widgets/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
-        <li><a class="icon" aria-label="Next post" href="/2025/11/25/hello-world/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
-        
         <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
         <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
       </ul>
@@ -117,7 +115,7 @@
     
     
       <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%A7%81%EB%A0%AC%ED%99%94-Serialization"><span class="toc-number">1.</span> <span class="toc-text">직렬화(Serialization)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%AA%A9%EC%A0%81"><span class="toc-number">1.1.</span> <span class="toc-text">목적</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%98%88%EC%8B%9C"><span class="toc-number">1.2.</span> <span class="toc-text">예시</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%97%AD%EC%A7%81%EB%A0%AC%ED%99%94-Deserialization"><span class="toc-number">2.</span> <span class="toc-text">역직렬화(Deserialization)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%AA%A9%EC%A0%81-1"><span class="toc-number">2.1.</span> <span class="toc-text">목적</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%98%88%EC%8B%9C-1"><span class="toc-number">2.2.</span> <span class="toc-text">예시</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%A7%81%EB%A0%AC%ED%99%94-Serialization"><span class="toc-number">1.</span> <span class="toc-text">직렬화(Serialization)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%AA%A9%EC%A0%81"><span class="toc-number">1.1.</span> <span class="toc-text">목적</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%98%88%EC%8B%9C"><span class="toc-number">1.2.</span> <span class="toc-text">예시</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%97%AD%EC%A7%81%EB%A0%AC%ED%99%94-Deserialization"><span class="toc-number">2.</span> <span class="toc-text">역직렬화(Deserialization)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%AA%A9%EC%A0%81-2"><span class="toc-number">2.1.</span> <span class="toc-text">목적</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%98%88%EC%8B%9C-2"><span class="toc-number">2.2.</span> <span class="toc-text">예시</span></a></li></ol></li></ol>
       </div>
     
   </span>
@@ -144,7 +142,7 @@
       
         <time datetime="2025-11-25T15:00:00.000Z" class="dt-published" itemprop="datePublished">2025-11-26</time>
         
-        (Updated: <time datetime="2025-11-26T07:33:59.541Z" class="dt-updated" itemprop="dateModified">2025-11-26</time>)
+        (Updated: <time datetime="2026-01-27T07:58:04.465Z" class="dt-updated" itemprop="dateModified">2026-01-27</time>)
         
       
     </div>
@@ -170,39 +168,55 @@
 
   <div class="content e-content" itemprop="articleBody">
     <p>직렬화(Serialization)와 역직렬화(Deserialization)에 대해서 알아봅시다.</p>
-<p><img src="/2025/11/26/%EC%A7%81%EB%A0%AC%ED%99%94-Serialization-%EC%97%AD%EC%A7%81%EB%A0%AC%ED%99%94-Deserialization/Serialization.jpg" alt="serialization &amp; deserialization"> [^1]<br>[^1]: <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Serialization">참조</a></p>
-<h2 id="직렬화-Serialization"><a href="#직렬화-Serialization" class="headerlink" title="직렬화(Serialization)"></a>직렬화(Serialization)</h2><ul>
+<p><img src="Serialization.jpg" alt="serialization &amp; deserialization"><br>
+직렬화와 역직렬화 <sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p>
+<h2 id="직렬화-Serialization">직렬화(Serialization)</h2>
+<ul>
 <li>메모리에 존재하는 데이터를, 범용 포맷(JSON, XML, 바이너리 등)으로 변환하는 과정</li>
 <li>Encoding</li>
 </ul>
-<h3 id="목적"><a href="#목적" class="headerlink" title="목적"></a>목적</h3><ul>
+<h3 id="목적">목적</h3>
+<ul>
 <li>메모리에 있는 데이터를 전송 및 저장이 가능한 형태로 만들기 위함</li>
 </ul>
-<h3 id="예시"><a href="#예시" class="headerlink" title="예시"></a>예시</h3><ul>
+<h3 id="예시">예시</h3>
+<ul>
 <li>네트워크 전송</li>
 <li>파일 저장</li>
-<li>다른 시스템 및 프로그래밍 언어와 데이터 교환 </li>
-<li>iOS에서<ul>
+<li>다른 시스템 및 프로그래밍 언어와 데이터 교환</li>
+<li>iOS에서
+<ul>
 <li><code>class</code>와 <code>struct</code>로 정의한 데이터 모델의 인스턴스를 JSON으로 변환하여 서버로 전송</li>
 </ul>
 </li>
 </ul>
-<h2 id="역직렬화-Deserialization"><a href="#역직렬화-Deserialization" class="headerlink" title="역직렬화(Deserialization)"></a>역직렬화(Deserialization)</h2><ul>
+<h2 id="역직렬화-Deserialization">역직렬화(Deserialization)</h2>
+<ul>
 <li>범용 포맷(JSON, XML, 바이너리 등)으로 작성된 데이터를, 메모리 상의 데이터 구조로 변환하는 과정</li>
 <li>Decoding</li>
 </ul>
-<h3 id="목적-1"><a href="#목적-1" class="headerlink" title="목적"></a>목적</h3><ul>
+<h3 id="목적-2">목적</h3>
+<ul>
 <li>범용 포맷의 데이터를 애플리케이션에서 사용할 수 있는 형태로 변환하기 위함</li>
 </ul>
-<h3 id="예시-1"><a href="#예시-1" class="headerlink" title="예시"></a>예시</h3><ul>
+<h3 id="예시-2">예시</h3>
+<ul>
 <li>네트워크로부터 데이터 수신</li>
 <li>파일에서 데이터 읽기</li>
 <li>다른 시스템에서 전달받은 데이터 처리</li>
-<li>iOS에서<ul>
+<li>iOS에서
+<ul>
 <li>API 호출을 통해 받은 JSON 데이터를 iOS 앱에서 정의한 데이터 모델의 인스턴스로 변환하여 앱에서 사용</li>
 </ul>
 </li>
 </ul>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Serialization">참고링크</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
 
   </div>
 </article>
@@ -237,7 +251,7 @@
     
     
       <div id="toc-footer" style="display: none">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%A7%81%EB%A0%AC%ED%99%94-Serialization"><span class="toc-number">1.</span> <span class="toc-text">직렬화(Serialization)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%AA%A9%EC%A0%81"><span class="toc-number">1.1.</span> <span class="toc-text">목적</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%98%88%EC%8B%9C"><span class="toc-number">1.2.</span> <span class="toc-text">예시</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%97%AD%EC%A7%81%EB%A0%AC%ED%99%94-Deserialization"><span class="toc-number">2.</span> <span class="toc-text">역직렬화(Deserialization)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%AA%A9%EC%A0%81-1"><span class="toc-number">2.1.</span> <span class="toc-text">목적</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%98%88%EC%8B%9C-1"><span class="toc-number">2.2.</span> <span class="toc-text">예시</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%A7%81%EB%A0%AC%ED%99%94-Serialization"><span class="toc-number">1.</span> <span class="toc-text">직렬화(Serialization)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%AA%A9%EC%A0%81"><span class="toc-number">1.1.</span> <span class="toc-text">목적</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%98%88%EC%8B%9C"><span class="toc-number">1.2.</span> <span class="toc-text">예시</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%97%AD%EC%A7%81%EB%A0%AC%ED%99%94-Deserialization"><span class="toc-number">2.</span> <span class="toc-text">역직렬화(Deserialization)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%AA%A9%EC%A0%81-2"><span class="toc-number">2.1.</span> <span class="toc-text">목적</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%98%88%EC%8B%9C-2"><span class="toc-number">2.2.</span> <span class="toc-text">예시</span></a></li></ol></li></ol>
       </div>
     
 
