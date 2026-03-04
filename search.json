@@ -1,0 +1,28 @@
+[
+  {
+    "slug": "WWDC25-Whats-new-in-widgets",
+    "title": "[WWDC25] What's new in widgets",
+    "date": "Tue Dec 30",
+    "tags": [
+      "WWDC25",
+      "SwiftUI",
+      "Widget"
+    ],
+    "categories": [
+      "WWDC"
+    ],
+    "excerpt": "\n 기존 플랫폼에서의 위젯 개선 (iOS, macOS)\n\n- iOS 26 홈 화면에서 위젯을 투명 모드 / 틴트 모드로 설정 가능 (사용자화)\n\n Accented rendering mode\n\n!원본 위젯(/posts/WWDC25-Whats-new-in-widgets/image.png)\n\n원본 위젯\n\n!widgetRenderingMode가 Accented가 "
+  },
+  {
+    "slug": "직렬화-Serialization-역직렬화-Deserialization",
+    "title": "직렬화(Serialization)/역직렬화(Deserialization)",
+    "date": "Wed Nov 26",
+    "tags": [
+      "Codable"
+    ],
+    "categories": [
+      "Computer Science"
+    ],
+    "excerpt": "\n직렬화(Serialization)와 역직렬화(Deserialization)에 대해서 알아봅시다.\n\n!serialization & deserialization(/posts/직렬화-Serialization-역직렬화-Deserialization/Serialization.jpg)\n직렬화와 역직렬화 ^1\n\n^1: 참고링크(https://en.wikipedia.or"
+  }
+]
