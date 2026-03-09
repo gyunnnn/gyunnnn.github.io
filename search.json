@@ -41,7 +41,7 @@
     "excerpt": "기존 플랫폼에서의 위젯 개선 (iOS, macOS) - iOS 26 홈 화면에서 위젯을 투명 모드 / 틴트 모드로 설정 가능 (사용자화) Accented rendering mode 원본 위젯 widgetRenderingMode가 Accented가 되어 모든 컨텐츠를 흰색으로 채색한 모습 background가 제거되고 투명 상태 혹은 tint color로 대"
   },
   {
-    "slug": "직렬화-Serialization-역직렬화-Deserialization",
+    "slug": "serialization-deserialization",
     "title": "직렬화(Serialization)/역직렬화(Deserialization)",
     "date": "Wed Nov 26",
     "tags": [

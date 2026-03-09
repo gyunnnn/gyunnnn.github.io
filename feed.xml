@@ -5,7 +5,7 @@
     <link>https://gyunnnn.github.io/</link>
     <description>PARK JEGYUN의 개인 블로그</description>
     <language>ko-KR</language>
-    <lastBuildDate>Mon, 09 Mar 2026 01:03:51 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 09 Mar 2026 01:12:00 GMT</lastBuildDate>
     <atom:link href="https://gyunnnn.github.io/feed.xml" rel="self" type="application/rss+xml"/>
 
   <item>
@@ -17,8 +17,8 @@
   </item>
   <item>
     <title>직렬화(Serialization)/역직렬화(Deserialization)</title>
-    <link>https://gyunnnn.github.io/posts/직렬화-Serialization-역직렬화-Deserialization/</link>
-    <guid isPermaLink="true">https://gyunnnn.github.io/posts/직렬화-Serialization-역직렬화-Deserialization/</guid>
+    <link>https://gyunnnn.github.io/posts/serialization-deserialization/</link>
+    <guid isPermaLink="true">https://gyunnnn.github.io/posts/serialization-deserialization/</guid>
     <pubDate>Mon, 26 Nov 2001 00:00:00 GMT</pubDate>
     <description>직렬화(Serialization)와 역직렬화(Deserialization)에 대해서 알아봅시다. 직렬화와 역직렬화 [^1] ^1]: [참고링크 직렬화(Serialization) - 메모리에 존재하는 데이터를, 범용 포맷(JSON, XML, 바이너리 등)으로 변환하는 과정 - Encoding 목적 - 메모리에 있는 데이터를 전송 및 저장이 가능한 형태로 만들기 위함 예시 - 네트워크 전송 - 파일 저장 - 다른 시스템 및 프로그래밍 언어와 데이터 교환 - iOS에서 - class와 struct로 정의한 데이터 모델의 인스턴스를 JSO</description>
   </item>
