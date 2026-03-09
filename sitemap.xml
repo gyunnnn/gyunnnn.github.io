@@ -25,12 +25,6 @@
 <priority>0.6</priority>
 </url>
 <url>
-<loc>https://gyunnnn.github.io/posts/SwiftUI-WidgetRenderingMode-알아보기/</loc>
-<lastmod>2026-03-04T00:00:00.000Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.8</priority>
-</url>
-<url>
 <loc>https://gyunnnn.github.io/posts/WWDC25-Whats-new-in-widgets/</loc>
 <lastmod>2025-12-30T00:00:00.000Z</lastmod>
 <changefreq>monthly</changefreq>
@@ -39,12 +33,6 @@
 <url>
 <loc>https://gyunnnn.github.io/posts/직렬화-Serialization-역직렬화-Deserialization/</loc>
 <lastmod>2025-11-26T00:00:00.000Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.8</priority>
-</url>
-<url>
-<loc>https://gyunnnn.github.io/posts/BOJ-15684-사다리-조작/</loc>
-<lastmod>2025-11-25T00:00:00.000Z</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.8</priority>
 </url>
