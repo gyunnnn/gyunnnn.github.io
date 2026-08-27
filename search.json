@@ -2,7 +2,7 @@
   {
     "slug": "WWDC25-Whats-new-in-widgets",
     "title": "[WWDC25] What's new in widgets",
-    "date": "Tue Dec 30",
+    "date": "2025-12-30",
     "tags": [
       "WWDC25",
       "SwiftUI",
@@ -16,7 +16,7 @@
   {
     "slug": "serialization-deserialization",
     "title": "직렬화(Serialization)/역직렬화(Deserialization)",
-    "date": "Wed Nov 26",
+    "date": "2025-11-26",
     "tags": [
       "Codable"
     ],
