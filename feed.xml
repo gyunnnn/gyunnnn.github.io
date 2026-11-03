@@ -5,7 +5,7 @@
     <link>https://gyunnnn.github.io/</link>
     <description>PARK JEGYUN의 개인 블로그</description>
     <language>ko-KR</language>
-    <lastBuildDate>Mon, 21 Sep 2026 08:04:14 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 03 Nov 2026 04:39:53 GMT</lastBuildDate>
     <atom:link href="https://gyunnnn.github.io/feed.xml" rel="self" type="application/rss+xml"/>
 
   <item>
@@ -13,7 +13,7 @@
     <link>https://gyunnnn.github.io/posts/WWDC25-Whats-new-in-widgets/</link>
     <guid isPermaLink="true">https://gyunnnn.github.io/posts/WWDC25-Whats-new-in-widgets/</guid>
     <pubDate>Tue, 30 Dec 2025 00:00:00 GMT</pubDate>
-    <description>기존 플랫폼에서의 위젯 개선 (iOS, macOS) - iOS 26 홈 화면에서 위젯을 투명 모드 / 틴트 모드로 설정 가능 (사용자화) Accented rendering mode 원본 위젯 widgetRenderingMode가 Accented가 되어 모든 컨텐츠를 흰색으로 채색한 모습 background가 제거되고 투명 상태 혹은 tint color로 대체됨 - 위젯 콘텐츠는 Accented Rendering Mode로 생성되어 모든 내용이 흰색으로 채색됨 - 위젯 백그라운드가 제거되고, 투명 유리 / tint color로 대체됨</description>
+    <description>기존 플랫폼에서의 위젯 개선 (iOS, macOS) - iOS 26 홈 화면에서 위젯을 투명 모드 / 틴트 모드로 설정 가능 (사용자화) Accented rendering mode - 위젯 콘텐츠는 Accented Rendering Mode로 생성되어 모든 내용이 흰색으로 채색됨 - 위젯 백그라운드가 제거되고, 투명 유리 / tint color로 대체됨 - accented 모드에서 아무것도 하지 않아도 알아서 변경됨 - 문제 상황 - 카페인 트래킹 앱 위젯의 이미지 위에 텍스트를 두어 가독성을 높였으나, accented render</description>
   </item>
   <item>
     <title>직렬화(Serialization)/역직렬화(Deserialization)</title>
