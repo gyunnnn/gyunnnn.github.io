@@ -1,0 +1,1 @@
+var e=`gyun.notes`,t=t=>t?`${t} | ${e}`:e;export{t as n,e as t};
