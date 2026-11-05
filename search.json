@@ -9,6 +9,15 @@
     "excerpt": "기존 플랫폼에서의 위젯 개선 (iOS, macOS) - iOS 26 홈 화면에서 위젯을 투명 모드 / 틴트 모드로 설정 가능 (사용자화) Accented rendering mode - 위젯 콘텐츠는 Accented Rendering Mode로 생성되어 모든 내용이 흰색으로 채색됨 - 위젯 백그라운드가 제거되고, 투명 유리 / tint color로 대체됨 -"
   },
   {
+    "slug": "java-first-step-operator",
+    "title": "김영한의 자바 입문 - 연산자",
+    "date": "2026-11-06",
+    "categories": [
+      "java"
+    ],
+    "excerpt": "연산자 - 연산자(operator): 연산 기호 - 예: +, - - 피연산자(operand): 연산 대상 - 예: 3, 5, a, b, \"Hello, World!\" 종류 - 산술 연산자 - +, -, , /, % - 증감 연산자 - ++, -- - 비교 연산자 - ==, !=, <, , <=, = - 논리 연산자 - &&, ||, ! - 대입 연산자 - "
+  },
+  {
     "slug": "java-first-step-variable",
     "title": "김영한의 자바 입문 - 변수",
     "date": "2026-11-05",

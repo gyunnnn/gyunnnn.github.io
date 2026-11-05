@@ -5,9 +5,16 @@
     <link>https://gyunnnn.github.io/</link>
     <description>업무와 학습에서 만난 문제, 그리고 그 과정에서 배운 점을 기록합니다.</description>
     <language>ko-KR</language>
-    <lastBuildDate>Thu, 05 Nov 2026 09:00:28 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 05 Nov 2026 21:23:54 GMT</lastBuildDate>
     <atom:link href="https://gyunnnn.github.io/feed.xml" rel="self" type="application/rss+xml"/>
 
+  <item>
+    <title>김영한의 자바 입문 - 연산자</title>
+    <link>https://gyunnnn.github.io/posts/java-first-step-operator/</link>
+    <guid isPermaLink="true">https://gyunnnn.github.io/posts/java-first-step-operator/</guid>
+    <pubDate>Fri, 06 Nov 2026 00:00:00 GMT</pubDate>
+    <description>연산자 - 연산자(operator): 연산 기호 - 예: +, - - 피연산자(operand): 연산 대상 - 예: 3, 5, a, b, &quot;Hello, World!&quot; 종류 - 산술 연산자 - +, -, , /, % - 증감 연산자 - ++, -- - 비교 연산자 - ==, !=, &lt;, , &lt;=, = - 논리 연산자 - &amp;&amp;, ||, ! - 대입 연산자 - =, +=, -=, =, %= - 삼항 연산자 - ? : 문자열 더하기 java String result3 = &quot;a + b = &quot; + 10; System.out.println(re</description>
+  </item>
   <item>
     <title>김영한의 자바 입문 - 변수</title>
     <link>https://gyunnnn.github.io/posts/java-first-step-variable/</link>
