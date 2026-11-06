@@ -5,9 +5,16 @@
     <link>https://gyunnnn.github.io/</link>
     <description>업무와 학습에서 만난 문제, 그리고 그 과정에서 배운 점을 기록합니다.</description>
     <language>ko-KR</language>
-    <lastBuildDate>Fri, 06 Nov 2026 08:58:20 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 06 Nov 2026 20:44:55 GMT</lastBuildDate>
     <atom:link href="https://gyunnnn.github.io/feed.xml" rel="self" type="application/rss+xml"/>
 
+  <item>
+    <title>김영한의 자바 입문 - 조건문</title>
+    <link>https://gyunnnn.github.io/posts/java-first-step-conditionals/</link>
+    <guid isPermaLink="true">https://gyunnnn.github.io/posts/java-first-step-conditionals/</guid>
+    <pubDate>Sat, 07 Nov 2026 00:00:00 GMT</pubDate>
+    <description>if문 - java의 if문에는 boolean 또는 Boolean 타입으로 평가되는 표현식이 있어야 하며, 해당 표현식이 true 이면 중괄호 {} 안의 코드를 실행한다. - 이전에 다루었던 Swift와는 반대로, java에서 if문의 표현식(Expression)에는 소괄호()가 필수이다. - 표현식(Expression) - 값을 만들어내는 코드 - 문장(Statement) - 어떤 동작을 수행하는 실행 단위 java if (Expression) { // Expression이 true인 경우 실행할 코드 } - 또한 if문 다음에 </description>
+  </item>
   <item>
     <title>김영한의 자바 입문 - 연산자</title>
     <link>https://gyunnnn.github.io/posts/java-first-step-operator/</link>
