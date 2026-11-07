@@ -5,9 +5,16 @@
     <link>https://gyunnnn.github.io/</link>
     <description>업무와 학습에서 만난 문제, 그리고 그 과정에서 배운 점을 기록합니다.</description>
     <language>ko-KR</language>
-    <lastBuildDate>Fri, 06 Nov 2026 20:44:55 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 07 Nov 2026 19:18:10 GMT</lastBuildDate>
     <atom:link href="https://gyunnnn.github.io/feed.xml" rel="self" type="application/rss+xml"/>
 
+  <item>
+    <title>김영한의 자바 입문 - 반복문</title>
+    <link>https://gyunnnn.github.io/posts/java-first-step-loop-statement/</link>
+    <guid isPermaLink="true">https://gyunnnn.github.io/posts/java-first-step-loop-statement/</guid>
+    <pubDate>Sun, 08 Nov 2026 00:00:00 GMT</pubDate>
+    <description>반복문 while 문 java while (조건식) { // 코드 } - 조건식이 참이면 코드 블럭을 실행하고, 거짓이면 while문을 벗어난다. - 코드 블록 실행이 끝나면 다시 조건식 검사로 돌아가서 조건식을 검사한다. (무한 반복) do-while 문 java do { // 실행할 코드 } while (조건식) - while 문과 비슷하지만, 조건에 관계 없이 무조건 한 번은 do 블록 안의 코드를 실행한다. - do 블록의 코드를 실행한 뒤, 조건식을 검증한다. - 참이면 다시 do 블록의 코드를 실행한다. - 거짓이라면 d</description>
+  </item>
   <item>
     <title>김영한의 자바 입문 - 조건문</title>
     <link>https://gyunnnn.github.io/posts/java-first-step-conditionals/</link>

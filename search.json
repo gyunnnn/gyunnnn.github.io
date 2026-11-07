@@ -18,6 +18,15 @@
     "excerpt": "if문 - java의 if문에는 boolean 또는 Boolean 타입으로 평가되는 표현식이 있어야 하며, 해당 표현식이 true 이면 중괄호 {} 안의 코드를 실행한다. - 이전에 다루었던 Swift와는 반대로, java에서 if문의 표현식(Expression)에는 소괄호()가 필수이다. - 표현식(Expression) - 값을 만들어내는 코드 - 문장("
   },
   {
+    "slug": "java-first-step-loop-statement",
+    "title": "김영한의 자바 입문 - 반복문",
+    "date": "2026-11-08",
+    "categories": [
+      "java"
+    ],
+    "excerpt": "반복문 while 문 java while (조건식) { // 코드 } - 조건식이 참이면 코드 블럭을 실행하고, 거짓이면 while문을 벗어난다. - 코드 블록 실행이 끝나면 다시 조건식 검사로 돌아가서 조건식을 검사한다. (무한 반복) do-while 문 java do { // 실행할 코드 } while (조건식) - while 문과 비슷하지만, 조건에 "
+  },
+  {
     "slug": "java-first-step-operator",
     "title": "김영한의 자바 입문 - 연산자",
     "date": "2026-11-06",
