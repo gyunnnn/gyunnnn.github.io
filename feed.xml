@@ -5,9 +5,16 @@
     <link>https://gyunnnn.github.io/</link>
     <description>업무와 학습에서 만난 문제, 그리고 그 과정에서 배운 점을 기록합니다.</description>
     <language>ko-KR</language>
-    <lastBuildDate>Tue, 10 Nov 2026 00:26:31 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 10 Nov 2026 00:31:11 GMT</lastBuildDate>
     <atom:link href="https://gyunnnn.github.io/feed.xml" rel="self" type="application/rss+xml"/>
 
+  <item>
+    <title>김영한의 자바 입문 - 스코프, 형변환</title>
+    <link>https://gyunnnn.github.io/posts/java-first-step-scope-casting/</link>
+    <guid isPermaLink="true">https://gyunnnn.github.io/posts/java-first-step-scope-casting/</guid>
+    <pubDate>Tue, 10 Nov 2026 00:00:00 GMT</pubDate>
+    <description>스코프 java package scope; public class Scope1 { static void main(String[] args) { int m = 10; // m 생존 시작 if (true) { int x = 20; // x 생존 시작 System.out.println(&quot;if m = &quot; + m); System.out.println(&quot;if x = &quot; + x); } // x 생존 종료 // System.out.println(&quot;main x = &quot; + x); // java: cannot find symbol // symbol: </description>
+  </item>
   <item>
     <title>김영한의 자바 입문 - 반복문</title>
     <link>https://gyunnnn.github.io/posts/java-first-step-loop-statement/</link>

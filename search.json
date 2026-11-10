@@ -36,6 +36,15 @@
     "excerpt": "연산자 - 연산자(operator): 연산 기호 - 예: +, - - 피연산자(operand): 연산 대상 - 예: 3, 5, a, b, \"Hello, World!\" 종류 - 산술 연산자 - +, -, , /, % - 증감 연산자 - ++, -- - 비교 연산자 - ==, !=, <, , <=, = - 논리 연산자 - &&, ||, ! - 대입 연산자 - "
   },
   {
+    "slug": "java-first-step-scope-casting",
+    "title": "김영한의 자바 입문 - 스코프, 형변환",
+    "date": "2026-11-10",
+    "categories": [
+      "jav"
+    ],
+    "excerpt": "스코프 java package scope; public class Scope1 { static void main(String[] args) { int m = 10; // m 생존 시작 if (true) { int x = 20; // x 생존 시작 System.out.println(\"if m = \" + m); System.out.println(\"if x = "
+  },
+  {
     "slug": "java-first-step-variable",
     "title": "김영한의 자바 입문 - 변수",
     "date": "2026-11-05",
