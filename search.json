@@ -5,8 +5,7 @@
     "date": "2025-12-30",
     "categories": [
       "WWDC"
-    ],
-    "excerpt": "기존 플랫폼에서의 위젯 개선 (iOS, macOS) - iOS 26 홈 화면에서 위젯을 투명 모드 / 틴트 모드로 설정 가능 (사용자화) Accented rendering mode - 위젯 콘텐츠는 Accented Rendering Mode로 생성되어 모든 내용이 흰색으로 채색됨 - 위젯 백그라운드가 제거되고, 투명 유리 / tint color로 대체됨 -"
+    ]
   },
   {
     "slug": "java-first-step-conditionals",
@@ -14,8 +13,7 @@
     "date": "2026-11-07",
     "categories": [
       "java"
-    ],
-    "excerpt": "if문 - java의 if문에는 boolean 또는 Boolean 타입으로 평가되는 표현식이 있어야 하며, 해당 표현식이 true 이면 중괄호 {} 안의 코드를 실행한다. - 이전에 다루었던 Swift와는 반대로, java에서 if문의 표현식(Expression)에는 소괄호()가 필수이다. - 표현식(Expression) - 값을 만들어내는 코드 - 문장("
+    ]
   },
   {
     "slug": "java-first-step-loop-statement",
@@ -23,8 +21,7 @@
     "date": "2026-11-08",
     "categories": [
       "java"
-    ],
-    "excerpt": "반복문 while 문 java while (조건식) { // 코드 } - 조건식이 참이면 코드 블럭을 실행하고, 거짓이면 while문을 벗어난다. - 코드 블록 실행이 끝나면 다시 조건식 검사로 돌아가서 조건식을 검사한다. (무한 반복) do-while 문 java do { // 실행할 코드 } while (조건식) - while 문과 비슷하지만, 조건에 "
+    ]
   },
   {
     "slug": "java-first-step-operator",
@@ -32,8 +29,7 @@
     "date": "2026-11-06",
     "categories": [
       "java"
-    ],
-    "excerpt": "연산자 - 연산자(operator): 연산 기호 - 예: +, - - 피연산자(operand): 연산 대상 - 예: 3, 5, a, b, \"Hello, World!\" 종류 - 산술 연산자 - +, -, , /, % - 증감 연산자 - ++, -- - 비교 연산자 - ==, !=, <, , <=, = - 논리 연산자 - &&, ||, ! - 대입 연산자 - "
+    ]
   },
   {
     "slug": "java-first-step-scope-casting",
@@ -41,8 +37,7 @@
     "date": "2026-11-10",
     "categories": [
       "jav"
-    ],
-    "excerpt": "스코프 java package scope; public class Scope1 { static void main(String[] args) { int m = 10; // m 생존 시작 if (true) { int x = 20; // x 생존 시작 System.out.println(\"if m = \" + m); System.out.println(\"if x = "
+    ]
   },
   {
     "slug": "java-first-step-variable",
@@ -50,8 +45,7 @@
     "date": "2026-11-05",
     "categories": [
       "java"
-    ],
-    "excerpt": "변수 선언 - 변수를 선언하면 메모리 안에 공간을 확보하여 데이터를 저장할 수 있다. - 변수 이름을 통해 해당 메모리 공간에 접근할 수 있다. 초기화 - 변수를 선언하고, 선언한 변수에 처음으로 값을 저장하는 것을 초기화 라고 한다. - 변수를 초기화 하지 않고 사용하면 컴파일 에러가 발생한다. java java: variable a might not h"
+    ]
   },
   {
     "slug": "java-first-step",
@@ -59,8 +53,7 @@
     "date": "2026-11-03",
     "categories": [
       "java"
-    ],
-    "excerpt": "자바 첫걸음 - 업무 변경으로 Java를 빠르게 익히고자 강의 수강 후 정리한다. - 기존에 다른 프로그래밍 언어를 학습했던 적이 있으므로, 몰랐던 내용이거나 새로 알게 된 부분, 애매하거나 헷갈렸던 부분만 다시 정리한다. - 강의 링크 목차 - 변수 - 연산자 - 조건문 - 반복문 - 스코프, 형변환 - 배열 - 메서드"
+    ]
   },
   {
     "slug": "serialization-deserialization",
@@ -68,7 +61,6 @@
     "date": "2025-11-26",
     "categories": [
       "Computer Science"
-    ],
-    "excerpt": "직렬화(Serialization)와 역직렬화(Deserialization)에 대해서 알아봅시다. 직렬화와 역직렬화 [^1] ^1]: [참고링크 직렬화(Serialization) - 메모리에 존재하는 데이터를, 범용 포맷(JSON, XML, 바이너리 등)으로 변환하는 과정 - Encoding 목적 - 메모리에 있는 데이터를 전송 및 저장이 가능한 형태로 만들"
+    ]
   }
 ]
