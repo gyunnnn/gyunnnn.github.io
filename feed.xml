@@ -5,9 +5,16 @@
     <link>https://gyunnnn.github.io/</link>
     <description>업무와 학습에서 만난 문제, 그리고 그 과정에서 배운 점을 기록합니다.</description>
     <language>ko-KR</language>
-    <lastBuildDate>Thu, 19 Nov 2026 01:31:29 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 19 Nov 2026 08:16:01 GMT</lastBuildDate>
     <atom:link href="https://gyunnnn.github.io/feed.xml" rel="self" type="application/rss+xml"/>
 
+  <item>
+    <title>김영한의 자바 입문 - 메서드</title>
+    <link>https://gyunnnn.github.io/posts/java-first-step-method/</link>
+    <guid isPermaLink="true">https://gyunnnn.github.io/posts/java-first-step-method/</guid>
+    <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
+    <description>자바에서 함수를 메서드(Method)라고 한다 메서드 ∈ 함수 (함수의 한 종류이다) 메서드는 수학의 함수와 유사한 형태이며, 값을 입력하면 연산을 처리한 후 결과를 반환해준다. public static int add(int a, int b) public: 다른 클래스에서 호출할 수 있는 메서드라는 뜻이다. static: 객체를 생성하지 않고 호출할 수 있는 정적 메서드라는 뜻이다. int: 반환 타입을 정의한다. 메서드 실행 결과를 반환할 때 사용할 타입 add: 메서드를 호출할 이름을 정의한다. 이 이름을 통해 메서드를…</description>
+  </item>
   <item>
     <title>김영한의 자바 입문 - 배열</title>
     <link>https://gyunnnn.github.io/posts/java-first-step-array/</link>
